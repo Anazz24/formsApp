@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
+    <ion-progress-bar [value]="progress"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 
@@ -16,19 +17,26 @@
     <ion-input type="password"></ion-input>
   </ion-item>
 
-<ion-item class="entre">
+  <ion-card>
+    <ion-card-header>
+      
+        <ion-button>Entrar</ion-button>
+      
 
-  <ion-button>Entrar</ion-button>
+      <ion-button>
+      <ion-item routerLink="/registro" color="primary">
+        Registrar
+      </ion-item>
+    </ion-button>
+    </ion-card-header>
 
+    <ion-card-content>
+    <ion-button fill="clear">Esqueceu senha</ion-button>
+  </ion-card-content>
 
-  <ion-button>
-    <ion-item routerLink="/registro">
-    Registrar
-  </ion-item>
-</ion-button>
+  </ion-card>
 
-</ion-item>
-
-<ion-button fill="clear">Esqueceu senha</ion-button>
 
 </ion-content>
+
+
