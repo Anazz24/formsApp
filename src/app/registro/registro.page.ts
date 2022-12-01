@@ -13,6 +13,33 @@ import { StorageService } from '../services/storage.service';
 export class RegistroPage implements OnInit {
 
   formRegistro: FormGroup;
+
+  mensagens = {
+    nome: [
+      { tipo: 'required', mensagem: 'O campo Nome é obrigatório.' },
+      { tipo: 'minlength', mensagem: 'O nome deve ter pelo menos 3 caracteres.' },
+    ],
+    cpf: [
+      { tipo: 'required', mensagem: 'O campo CPF é obrigatório.' },
+      { tipo: 'invalido', mensagem: 'CPF Inválido.' },
+    ],
+    email: [
+      { tipo: 'required', mensagem: 'O campo E-mail é obrigatório.' },
+      { tipo: 'email', mensagem: 'E-mail Inválido.' },
+    ],
+    senha: [
+      { tipo: 'required', mensagem: 'É obrigatório confirmar senha.' },
+      { tipo: 'minlength', mensagem: 'A senha deve ter pelo menos 6 caracteres.', },
+      { tipo: 'maxlength', mensagem: 'A senha deve ter no máximo 8 caractéres.' },
+    ],
+    confirmaSenha: [
+      { tipo: 'required', mensagem: 'É obrigatório confirmar senha.' },
+      { tipo: 'minlength', mensagem: 'A senha deve ter pelo menos 6 caracteres.', },
+      { tipo: 'maxlength', mensagem: 'A senha deve ter no máximo 8 caractéres.' },
+      { tipo: 'comparacao', mensagem: 'Deve ser igual a senha.' },
+    ],
+  };
+
   usuario: Usuario = new Usuario();
 
   constructor(private formBuilder: FormBuilder, private storageService: StorageService, private route: Router) {
@@ -36,7 +63,7 @@ export class RegistroPage implements OnInit {
       this.usuario.email = this.formRegistro.value.email;
       this.usuario.senha = this.formRegistro.value.senha;
       await this.storageService.set(this.usuario.email, this.usuario);
-      this.route.navigateByUrl('/tab1');
+      this.route.navigateByUrl('/tabs/tab1');
     }else{
       alert('Formulário Inválido!');
     }

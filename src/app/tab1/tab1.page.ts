@@ -21,4 +21,9 @@ export class Tab1Page {
     this.buscarUsuarios();
   }
 
+  async excluirRegistro(email: string){
+    await this.storageService.remove(email);
+    this.buscarUsuarios();
+  }
+
 }
