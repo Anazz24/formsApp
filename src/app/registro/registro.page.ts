@@ -32,7 +32,7 @@ export class RegistroPage implements OnInit {
       { tipo: 'minlength', mensagem: 'A senha deve ter pelo menos 6 caracteres.', },
       { tipo: 'maxlength', mensagem: 'A senha deve ter no máximo 8 caractéres.' },
     ],
-    confirmaSenha: [
+    confirmarSenha: [
       { tipo: 'required', mensagem: 'É obrigatório confirmar senha.' },
       { tipo: 'minlength', mensagem: 'A senha deve ter pelo menos 6 caracteres.', },
       { tipo: 'maxlength', mensagem: 'A senha deve ter no máximo 8 caractéres.' },
