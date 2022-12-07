@@ -3,7 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Produtos</ion-title>
+    <ion-title>Cadastrar Produtos</ion-title>
+    <ion-progress-bar [value]="progress"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,16 +13,9 @@
   <form [formGroup]="formProdutos">
 
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Cadastrar Produto</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-
 
         <ion-item>
-          <ion-label position="floating">nome</ion-label>
+          <ion-label position="floating">Nome</ion-label>
           <ion-input formControlName="nome"></ion-input>
           <ng-container *ngFor="let erro of mensagens.nome">
             <span
@@ -83,15 +77,16 @@
           </ng-container>
         </ion-item>
 
-
-        <ion-button size="full" (click)="salvarProduto()">SALVAR</ion-button>
-
-<ion-button fill="outline">
-  <ion-item routerLink="/tabs/tab1">
-    voltar
-  </ion-item>
-</ion-button>
-    </ion-card-content>
-    </ion-card>
+      <br>
+      
+        <ion-button (click)="salvarProduto()"  expand="full">Salvar</ion-button>
+    
+    
   </form>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer>
